@@ -75,9 +75,7 @@ In this section, I will manually download a dataset from a website.
 
 #### Process
 
-1. Set the working directory to the appropriate location where the data will be stored.
-
-- for code, see previous in-class practice part.
+1. Set the working directory to the appropriate location where the data will be stored. For Lab 05, I will save the contents of the corpus to the 'data/original/swda' directory.
 
 2. Create a directory to store the manually downloaded data.
 
@@ -103,7 +101,7 @@ In this section, I will programmatically download a dataset from a website.
 
 1. Load necessary libraries:
 
-See same code from 'setup-packages' part.
+See same code from 'setup-packages' part (chunk 2).
 
 2. Provide information about the data being collected:
 
@@ -111,7 +109,7 @@ See same code from 'setup-packages' part.
 - Source: [Lab 05](https://catalog.ldc.upenn.edu/LDC97S62)
 - Acquisition Strategy: Programmatically download
 - Format: audio
-- License: [LDC User Agreement for Non-Members](https://catalog.ldc.upenn.edu/license/ldc-non-members-agreement.pdf)
+- License: Attribution 4.0 International
 
 3. Define the URL of the website from which data will be downloaded:
 
