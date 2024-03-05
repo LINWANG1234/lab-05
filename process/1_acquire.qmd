@@ -1,0 +1,144 @@
+---
+title: "Lab 05: Harvesting research data"
+author: "Lin Wang"
+date: 2024-02-28
+date-moditied: today
+format:
+  html:
+    toc: true
+---
+
+## Data description
+
+<!--
+the nature of the data
+the source of the data
+the acquisition strategy that will be used
+the format of the data
+the license of the data
+
+-->
+
+- The data that I'm downloading is the Switchboard Dialog Act Corpus. This corpus is a set of conversation ...
+
+- The data is in an archived 
+on the [LDC](https://catalog.ldc.upenn.edu/LDC97S62). In this case, I'm going to download unarchive, and save the contents of the corpus to the 'data/original/swda' directory.
+
+<!-- Note: the path from the current file is:
+'../data/original/swda/' -->
+
+
+```{r}
+# https://catalog.ldc.upenn.edu/docs/LDC97S62/swb1_dialogact_annot.tar.gz
+```
+
+```{r}
+#| label: setup-packages
+#| message: false
+
+# Load packages
+library(dplyr)
+library(fs)
+```
+
+- The first step in the process is to try out using 'download.file()' to acquire the archieved file.
+
+```{r}
+#| label: download-archieve-test
+
+# URL: https://catalog.ldc.upenn.edu/LDC97S62
+
+# Set 'url' to the file address
+file_url <- "https://catalog.ldc.upenn.edu/docs/LDC97S62/swb1_dialogact_annot.tar.gz"
+
+dest_file <- "../data/original/swda.tar.gz"
+
+download.file(url = file_url, destfile = dest_file)
+
+```
+
+Now the file is at '../data/original/swda.tar.gz'.
+Since it is an archieved file, I will need to unarchive it. It's extension is 'tar.gz' so I will use the 'untar()' function from base R.
+
+```{r}
+#| label: unarchive-tes
+
+untar(tarfile = "../data/original/swda.tar.gz", exdir = "../data/original/swda")
+```
+
+
+## Data Collection Process
+
+### Manually downloading data from a website
+
+In this section, I will manually download a dataset from a website.
+
+#### Process
+
+1. Set the working directory to the appropriate location where the data will be stored.
+
+- for code, see previous in-class practice part.
+
+2. Create a directory to store the manually downloaded data.
+
+```{r}
+dir.create("data/original")
+```
+
+3. Provide information about the data being collected:
+
+- Data: Lab 05 Dataset
+- Source: [Lab 05](https://catalog.ldc.upenn.edu/LDC97S62)
+- Acquisition Strategy: Manual download
+- Format: audio
+- License: [Open Data License](https://catalog.ldc.upenn.edu/license/ldc-non-members-agreement.pdf)
+
+4. Manually download the data from the website and save it to the 'data/original' directory.
+
+### 2. Programmatically downloading data from a website
+
+In this section, I will programmatically download a dataset from a website.
+
+#### Process
+
+1. Load necessary libraries:
+
+See same code from 'setup-packages' part.
+
+2. Provide information about the data being collected:
+
+- Data: Lab 05 Dataset
+- Source: [Lab 05](https://catalog.ldc.upenn.edu/LDC97S62)
+- Acquisition Strategy: Programmatically download
+- Format: audio
+- License: [LDC User Agreement for Non-Members](https://catalog.ldc.upenn.edu/license/ldc-non-members-agreement.pdf)
+
+3. Define the URL of the website from which data will be downloaded:
+
+```{r}
+ url <- "https://catalog.ldc.upenn.edu/LDC97S62"
+```
+
+
+## Self assessment
+
+### What did you learn?
+
+Throughout Lab 05, I learned how to use Git and GitHub effectively to manage repositories. Additionally, I gained experience in investigating data sources, planning data collection strategies, and implementing data collection processes using R.
+
+### What did you find most/ least challenging?
+
+- The most challenging aspect of Lab 05 was ensuring the reproducibility of the data collection process. This involved structuring the code in a way that allows others to easily replicate the data collection steps. However, it was also the most rewarding part as it highlighted the importance of clear documentation and organization.
+
+- The least challenging aspect was setting up the repository on GitHub and forking/cloning the repository. These steps were relatively straightforward and well-guided.
+
+### What resources did you consult?
+
+I consulted the provided Lab 05 instructions extensively, which provided a clear outline of the tasks to be completed. Additionally, I referred to the R documentation for specific functions used in the data collection process. For any additional questions, I reached out to the instructor for clarification. Meanwhile, I watched various You Tube videos that taling about rstudio markdown doading data files, like the one from [Profesa Princi](https://www.youtube.com/watch?v=8WtHQOIfj1k).
+
+
+### What more would you like to know about acquiring data?
+
+I would like to delve deeper into the topic of data acquisition strategies, particularly exploring more advanced techniques for programmatically accessing and retrieving data from various sources. Additionally, understanding best practices for data cleaning and preprocessing would be valuable in ensuring the quality of acquired data.
+
+
